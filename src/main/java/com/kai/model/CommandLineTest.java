@@ -1,5 +1,7 @@
 package com.kai.model;
 
+import com.kai.model.gen.Parameters;
+import com.kai.model.gen.SChartGenerator;
 import com.kai.util.PriorityLevel;
 
 public class CommandLineTest {
@@ -20,7 +22,10 @@ public class CommandLineTest {
         c.addStudent(lilly);
         c.addStudent(dwecker);
 
+        System.out.println("==================== CLASSROOM TEST");
         System.out.println(c);
+
+        SChartGenerator.generate(c, new Parameters());
     }
 
 }

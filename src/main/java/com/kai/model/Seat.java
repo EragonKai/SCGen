@@ -1,7 +1,12 @@
 package com.kai.model;
 
+import java.util.Objects;
+
 /**
  * Represents a seat in a classroom that can contain one student.
+ * This class is mainly used in SeatingChart.
+ *
+ * @see com.kai.model.gen.SeatingChart
  */
 public class Seat {
 
@@ -39,7 +44,7 @@ public class Seat {
      *
      * @return The ID of the Seat
      */
-    public String getSeatID() {
+    public String getSeatId() {
         return seatID;
     }
 
@@ -50,5 +55,24 @@ public class Seat {
      */
     public Student getStudent() {
         return student;
+    }
+
+    /**
+     * The equality of a seats are dependent on the id.
+     */
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Seat seat = (Seat) o;
+        return Objects.equals(seatID, seat.seatID);
+    }
+
+    @Override
+    public String toString() {
+        return "Seat{" +
+                "seatID='" + seatID + '\'' +
+                ", student=" + student +
+                '}';
     }
 }
